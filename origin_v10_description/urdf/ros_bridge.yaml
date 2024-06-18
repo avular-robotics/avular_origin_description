@@ -1,0 +1,135 @@
+# Gazebo Simulation clock
+- ros_topic_name: "clock"
+  gz_topic_name: "clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+# Tf publish of odom to base_link published by DiffDrive plugin
+- ros_topic_name: "tf"
+  gz_topic_name: "/robot/tf"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "gz.msgs.Pose_V"
+  direction: GZ_TO_ROS
+
+# Joint States
+- ros_topic_name: "/robot/joint_states"
+  gz_topic_name: "/robot/joint_states"
+  ros_type_name: "sensor_msgs/msg/JointState"
+  gz_type_name: "gz.msgs.Model"
+  direction: GZ_TO_ROS
+
+# Topic on which the robot can be controlled
+- ros_topic_name: "/robot/cmd_vel"
+  gz_topic_name: "/robot/cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  subscriber_queue: 5 # Default 10
+  publisher_queue: 6 # Default 10
+  lazy: false # Default "false"
+  direction:
+    ROS_TO_GZ # Default "BIDIRECTIONAL" - Bridge both directions
+    # "GZ_TO_ROS" - Bridge Gz topic to ROS
+    # "ROS_TO_GZ" - Bridge ROS topic to Gz
+
+# Odometry published by DiffDrive plugin
+- ros_topic_name: "/robot/odom"
+  gz_topic_name: "/robot/odom"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "gz.msgs.Odometry"
+  subscriber_queue: 5 # Default 10
+  publisher_queue: 6 # Default 10
+  lazy: false # Default "false"
+  direction:
+    GZ_TO_ROS # Default "BIDIRECTIONAL" - Bridge both directions
+    # "GZ_TO_ROS" - Bridge Gz topic to ROS
+    # "ROS_TO_GZ" - Bridge ROS topic to Gz
+
+# # Odometry published by OdometryPublisher plugin
+# - ros_topic_name: "/robot/odom"
+#   gz_topic_name: "/robot/odometry_with_covariance"
+#   ros_type_name: "nav_msgs/msg/Odometry"
+#   gz_type_name: "gz.msgs.OdometryWithCovariance"
+#   subscriber_queue: 5 # Default 10
+#   publisher_queue: 6 # Default 10
+#   lazy: false # Default "false"
+#   direction:
+#     GZ_TO_ROS # Default "BIDIRECTIONAL" - Bridge both directions
+#     # "GZ_TO_ROS" - Bridge Gz topic to ROS
+#     # "ROS_TO_GZ" - Bridge ROS topic to Gz
+
+# GNSS simulated by Gazebo
+- ros_topic_name: "/robot/gnss/fix"
+  gz_topic_name: "/robot/gnss"
+  ros_type_name: "sensor_msgs/msg/NavSatFix"
+  gz_type_name: "gz.msgs.NavSat"
+  subscriber_queue: 5 # Default 10
+  publisher_queue: 6 # Default 10
+  lazy: false # Default "false"
+  direction:
+    GZ_TO_ROS # Default "BIDIRECTIONAL" - Bridge both directions
+    # "GZ_TO_ROS" - Bridge Gz topic to ROS
+    # "ROS_TO_GZ" - Bridge ROS topic to Gz
+
+## Camera Topics
+# Camera Info
+- ros_topic_name: "/camera/color/camera_info"
+  gz_topic_name: "/robot/camera/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  subscriber_queue: 1 # Default 10
+  publisher_queue: 1 # Default 10
+  lazy: false # Default "false"
+  direction:
+    GZ_TO_ROS # Default "BIDIRECTIONAL" - Bridge both directions
+    # "GZ_TO_ROS" - Bridge Gz topic to ROS
+    # "ROS_TO_GZ" - Bridge ROS topic to Gz
+# Color Image
+- ros_topic_name: "/camera/color/image_raw"
+  gz_topic_name: "/robot/camera/image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  subscriber_queue: 1 # Default 10
+  publisher_queue: 1 # Default 10
+  lazy: false # Default "false"
+  direction:
+    GZ_TO_ROS # Default "BIDIRECTIONAL" - Bridge both directions
+    # "GZ_TO_ROS" - Bridge Gz topic to ROS
+    # "ROS_TO_GZ" - Bridge ROS topic to Gz
+# Depth Image
+- ros_topic_name: "/camera/depth/image_raw"
+  gz_topic_name: "/robot/camera/depth_image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  subscriber_queue: 1 # Default 10
+  publisher_queue: 1 # Default 10
+  lazy: false # Default "false"
+  direction:
+    GZ_TO_ROS # Default "BIDIRECTIONAL" - Bridge both directions
+    # "GZ_TO_ROS" - Bridge Gz topic to ROS
+    # "ROS_TO_GZ" - Bridge ROS topic to Gz
+# Depth Points
+- ros_topic_name: "/camera/depth/points"
+  gz_topic_name: "/robot/camera/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  subscriber_queue: 1 # Default 10
+  publisher_queue: 1 # Default 10
+  lazy: false # Default "false"
+  direction:
+    GZ_TO_ROS # Default "BIDIRECTIONAL" - Bridge both directions
+    # "GZ_TO_ROS" - Bridge Gz topic to ROS
+    # "ROS_TO_GZ" - Bridge ROS topic to Gz
+
+# LiDAR
+- ros_topic_name: "/robot/points"
+  gz_topic_name: "/robot/lidar/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  subscriber_queue: 1 # Default 10
+  publisher_queue: 1 # Default 10
+  lazy: false # Default "false"
+  direction:
+    GZ_TO_ROS # Default "BIDIRECTIONAL" - Bridge both directions
+    # "GZ_TO_ROS" - Bridge Gz topic to ROS
+    # "ROS_TO_GZ" - Bridge ROS topic to Gz
