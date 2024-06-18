@@ -1,0 +1,32 @@
+robot/cmd_vel_controller:
+  ros__parameters:
+    timeout_threshold: 1.0 # [s] Time threshold of no incoming messages after which an input is considered stale. This will result in a message with zeros being published, but the same state remains active.
+    topics:
+      out:
+        control_mode: "control_mode" # [origin_msgs::msg::ControlMode] Topic on which the current control mode is published (latching)
+        twist: "cmd_vel" # [geometry_msgs::msg::Twist] Topic on which the output twist is published
+    # State configurations
+    # Topic is the topic on which the incoming twist is received
+    # transitions_to describes which other states are accepted
+    # transitions to `none` and `previous` are always accepted
+    states:
+      # Remote control with (bluetooth) controller while having direct sight of the robot
+      manual:
+        topic: cmd_vel_joy
+        transitions_to: ["teleops", "docking"]
+      # Remotely control of the robot through a teleoperations connection
+      teleops:
+        topic: cmd_vel_teleop
+        transitions_to: ["manual", "docking"]
+      # Control by Avular Autopilot
+      autopilot:
+        topic: cmd_vel_aut
+        transitions_to: ["manual", "teleops", "docking", "user"]
+      # Control by Avular Autopilot while (un)docking
+      docking:
+        topic: cmd_vel_aut
+        transitions_to: ["autopilot", "user"]
+      # Control by custom software (customers or custom solutions)
+      user:
+        topic: cmd_vel_user
+        transitions_to: ["manual", "teleops", "docking", "autopilot"]
