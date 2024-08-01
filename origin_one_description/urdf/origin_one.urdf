@@ -1,0 +1,467 @@
+<?xml version='1.0'?>
+
+<robot name="avular_origin_one">
+
+  <gazebo>
+    <static>false</static>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="ignition-gazebo-navsat-system" name="ignition::gazebo::systems::NavSat">
+    </plugin>
+  </gazebo>
+
+  <link name='base_link' />
+
+  <link name='main_body'>
+    <inertial>
+      <mass value="21.0"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.77" iyz="0.0" izz="1.01"/>
+    </inertial>
+    <collision name='collision'>
+      <origin xyz="0 0 0.07" rpy="0 0 0.0"/>
+      <geometry>
+        <box size=".65 .4 .125"/>
+      </geometry>
+    </collision>
+    <visual name='visual'>
+      <origin xyz="0 0 0" rpy="0 0 0.0"/>
+      <geometry>
+        <mesh filename="package://origin_one_description/urdf/meshes/body.obj"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="left_front_wheel">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length=".07" radius=".1175"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 1.5707 0.0"/>
+      <geometry>
+        <mesh filename="package://origin_one_description/urdf/meshes/wheel.obj"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+  <gazebo reference="left_front_wheel">
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1</mu>
+            <mu2>1</mu2>
+            <slip1>0.015</slip1>
+            <slip2>0</slip2>
+            <fdir1>0 0 1</fdir1>
+          </ode>
+          <bullet>
+            <friction>1</friction>
+            <friction2>1</friction2>
+            <rolling_friction>0.1</rolling_friction>
+          </bullet>
+        </friction>
+      </surface>
+    </collision>
+  </gazebo>
+
+  <link name="right_front_wheel">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length=".07" radius=".1175"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 1.5707 0.0"/>
+      <geometry>
+        <mesh filename="package://origin_one_description/urdf/meshes/wheel.obj"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+  <gazebo reference="right_front_wheel">
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1</mu>
+            <mu2>1</mu2>
+            <slip1>0.015</slip1>
+            <slip2>0</slip2>
+            <fdir1>0 0 1</fdir1>
+          </ode>
+          <bullet>
+            <friction>1</friction>
+            <friction2>1</friction2>
+            <rolling_friction>0.1</rolling_friction>
+          </bullet>
+        </friction>
+      </surface>
+    </collision>
+  </gazebo>
+
+  <link name="left_rear_wheel">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length=".07" radius=".1175"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 1.5707 0.0"/>
+      <geometry>
+        <mesh filename="package://origin_one_description/urdf/meshes/wheel.obj"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+  <gazebo reference="left_rear_wheel">
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1</mu>
+            <mu2>1</mu2>
+            <slip1>0.015</slip1>
+            <slip2>0</slip2>
+            <fdir1>0 0 1</fdir1>
+          </ode>
+          <bullet>
+            <friction>1</friction>
+            <friction2>1</friction2>
+            <rolling_friction>0.1</rolling_friction>
+          </bullet>
+        </friction>
+      </surface>
+    </collision>
+  </gazebo>
+
+  <link name="right_rear_wheel">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length=".07" radius=".1175"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 1.5707 0.0"/>
+      <geometry>
+        <mesh filename="package://origin_one_description/urdf/meshes/wheel.obj"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+  <gazebo reference="right_rear_wheel">
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1</mu>
+            <mu2>1</mu2>
+            <slip1>0.015</slip1>
+            <slip2>0</slip2>
+            <fdir1>0 0 1</fdir1>
+          </ode>
+          <bullet>
+            <friction>1</friction>
+            <friction2>1</friction2>
+            <rolling_friction>0.1</rolling_friction>
+          </bullet>
+        </friction>
+      </surface>
+    </collision>
+  </gazebo>
+
+
+  <link name="ouster_base">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://origin_one_description/urdf/meshes/ouster.obj"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision name="collision-base">
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="os_sensor" />
+
+  <link name="lidar_link_gazebo">
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <collision name="collision-base">
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.07" radius="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="lidar_link_gazebo">
+    <sensor name='ouster_lidar' type='gpu_lidar'>
+      <topic>/robot/lidar</topic>
+      <gz_frame_id>os_lidar</gz_frame_id>
+      <update_rate>10</update_rate>
+      <lidar>
+        <scan>
+          <horizontal>
+            <samples>1024</samples>
+            <resolution>1.0</resolution>
+            <min_angle>-3.1415926</min_angle>
+            <max_angle>3.1415926</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>32</samples>
+            <resolution>1</resolution>
+            <min_angle>-0.39</min_angle>
+            <max_angle>0.39</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.08</min>
+          <max>100.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise type="gaussian">
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </lidar>
+      <alwaysOn>1</alwaysOn>
+      <visualize>true</visualize>
+    </sensor>
+  </gazebo>
+
+  <link name="camera_link">
+    <inertial>
+      <mass value="0.035"/>
+      <inertia ixx="0.001" ixy="0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <collision name="collision">
+      <origin xyz="0 0.047 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.008 0.13 0.022"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="camera_link">
+    <sensor name="realsense_d435" type="rgbd_camera">
+      <gz_frame_id>camera_link</gz_frame_id>
+      <topic>/robot/camera</topic>
+      <update_rate>6</update_rate>
+      <camera name="camera">
+        <horizontal_fov>1.0472</horizontal_fov>
+        <lens>
+          <intrinsics>
+            <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+            <fx>554.25469</fx>
+            <fy>554.25469</fy>
+            <!-- cx = ( width + 1 ) / 2 -->
+            <cx>320.5</cx>
+            <!-- cy = ( height + 1 ) / 2 -->
+            <cy>240.5</cy>
+            <s>0</s>
+          </intrinsics>
+        </lens>
+        <distortion>
+          <k1>0.0</k1>
+          <k2>0.0</k2>
+          <k3>0.0</k3>
+          <p1>0.0</p1>
+          <p2>0.0</p2>
+          <center>0.5 0.5</center>
+        </distortion>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <depth_camera>
+          <clip>
+            <near>0.1</near>
+            <far>10</far>
+          </clip>
+        </depth_camera>
+        <noise type="gaussian">
+          <mean>0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+    </sensor>
+  </gazebo>
+
+  <link name="gnss_link">
+    <visual name="visual_pole">
+      <geometry>
+        <mesh filename="package://origin_one_description/urdf/meshes/antenna.obj"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.03 0.03 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <gazebo reference="gnss_link">
+    <sensor name="navsat" type="navsat">
+      <gz_frame_id>gnss_link</gz_frame_id>
+      <always_on>1</always_on>
+      <update_rate>10</update_rate>
+      <topic>/robot/gnss</topic>
+      <!-- Obtained from http://sdformat.org/spec?ver=1.11&elem=sensor#sensor_gps -->
+      <gps>
+        <position_sensing>
+          <horizontal>
+            <!-- Noise in degrees: https://github.com/gazebosim/gz-sensors/issues/325 -->
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>0.0001</stddev>
+            </noise>
+          </horizontal>
+          <vertical>
+            <!-- Noise in degrees -->
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>0.0001</stddev>
+            </noise>
+          </vertical>
+        </position_sensing>
+      </gps>
+    </sensor>
+  </gazebo>
+
+  <joint type="fixed" name="base_body">
+    <origin xyz="0.0 0 0.064" rpy="0 0 0"/>
+    <child link="main_body" />
+    <parent link="base_link"/>
+  </joint>
+
+  <joint type="continuous" name="main_body_left_front_wheel">
+    <origin xyz="0.205 0.25 0.056" rpy="-1.5707 0 0"/>
+    <child link="left_front_wheel" />
+    <parent link="main_body"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100000.0" velocity="10"/>
+  </joint>
+
+  <joint type="continuous" name="main_body_right_front_wheel">
+    <origin xyz="0.205 -0.25 0.056" rpy="1.5707 0 0"/>
+    <child link="right_front_wheel" />
+    <parent link="main_body"/>
+    <axis xyz="0 0 -1"/>
+    <limit effort="100000.0" velocity="10"/>
+  </joint>
+
+  <joint type="continuous" name="main_body_left_rear_wheel">
+    <origin xyz="-0.205 0.25 0.056" rpy="-1.5707 0 0"/>
+    <child link="left_rear_wheel" />
+    <parent link="main_body"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100000.0" velocity="10"/>
+  </joint>
+
+  <joint type="continuous" name="main_body_right_rear_wheel">
+    <origin xyz="-0.205 -0.25 0.056" rpy="1.5707 0 0"/>
+    <child link="right_rear_wheel" />
+    <parent link="main_body"/>
+    <axis xyz="0 0 -1"/>
+    <limit effort="100000.0" velocity="10"/>
+  </joint>
+
+  <joint type="fixed" name="ouster_platform_joint">
+    <origin xyz="0.272 0 0.189" rpy="0 0 0"/>
+    <child link="ouster_base" />
+    <parent link="main_body"/>
+  </joint>
+
+  <joint name="ouster_orientation_joint" type="fixed">
+    <parent link="ouster_base" />
+    <child link="os_sensor" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint type="fixed" name="lidar_joint_gazebo">
+    <origin xyz="0 0 0.035" rpy="0 0 0"/>
+    <child link="lidar_link_gazebo" />
+    <parent link="ouster_base"/>
+  </joint>
+
+  <joint type="fixed" name="realsense_joint">
+    <origin xyz="0.32 0.03 0.1" rpy="0 0 0"/>
+    <child link="camera_link"/>
+    <parent link="main_body"/>
+  </joint>
+
+  <joint type="fixed" name="gnss_joint">
+    <origin xyz="-0.0505 0 0.212" rpy="0 0 0"/>
+    <child link="gnss_link"/>
+    <parent link="main_body"/>
+  </joint>
+
+  <!-- Controls the differential drive robot -->
+  <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="ignition::gazebo::systems::JointStatePublisher">
+      <topic>/robot/joint_states</topic>
+    </plugin>
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>main_body_left_front_wheel</left_joint>
+      <left_joint>main_body_left_rear_wheel</left_joint>
+      <right_joint>main_body_right_front_wheel</right_joint>
+      <right_joint>main_body_right_rear_wheel</right_joint>
+      <wheel_separation>0.45</wheel_separation>
+      <wheel_radius>0.120</wheel_radius>
+      <max_linear_acceleration>5.5</max_linear_acceleration>
+      <min_linear_acceleration>-5.5</min_linear_acceleration>
+      <max_angular_acceleration>6</max_angular_acceleration>
+      <min_angular_acceleration>-6</min_angular_acceleration>
+      <max_linear_velocity>1.5</max_linear_velocity>
+      <min_linear_velocity>-1.5</min_linear_velocity>
+      <max_angular_velocity>2</max_angular_velocity>
+      <min_angular_velocity>-2</min_angular_velocity>
+
+      <topic>/robot/cmd_vel</topic>
+      <odom_topic>/robot/odom</odom_topic>
+      <tf_topic>/robot/tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+    </plugin>
+  </gazebo>
+
+</robot>
