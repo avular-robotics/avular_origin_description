@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>origin_one_description</name>
+  <version>1.0.0</version>
+  <description> Robot description models for the Avular Origin One </description>
+  <maintainer email="p.janssen@avular.com">Paul Janssen</maintainer>
+  <maintainer email="b.hendrikx@avular.com">Bob Hendrikx</maintainer>
+  <license>proprietary</license>
+
+  <depend>robot_state_publisher</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+    <debian_depend>ros-humble-robot-state-publisher</debian_depend>
+  </export>
+</package>
