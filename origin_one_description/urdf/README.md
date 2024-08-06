@@ -27,7 +27,7 @@ You can simply include it as:
 ```xml
 <include>
   <uri>
-    https://fuel.gazebosim.org/1.0/AvularRobotics/models/AvularOriginone
+    https://fuel.gazebosim.org/1.0/AvularRobotics/models/AvularOriginOne
   </uri>
 </include>
 ```
@@ -40,7 +40,7 @@ Or build your own robot with this robot as a base. E.g. if you want to add a new
 <model name="modified_origin">
     <include>
     <uri>
-        https://fuel.gazebosim.org/1.0/AvularRobotics/models/AvularOriginone
+        https://fuel.gazebosim.org/1.0/AvularRobotics/models/AvularOriginOne
     </uri>
     </include>
 
