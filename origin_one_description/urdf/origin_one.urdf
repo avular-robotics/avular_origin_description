@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 
-<robot name="avular_origin_v10">
+<robot name="avular_origin_one">
 
   <gazebo>
     <static>false</static>
@@ -27,7 +27,7 @@
     <visual name='visual'>
       <origin xyz="0 0 0" rpy="0 0 0.0"/>
       <geometry>
-        <mesh filename="package://origin_v10_description/urdf/meshes/body.obj"
+        <mesh filename="package://origin_one_description/urdf/meshes/body.obj"
           scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
@@ -47,7 +47,7 @@
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 1.5707 0.0"/>
       <geometry>
-        <mesh filename="package://origin_v10_description/urdf/meshes/wheel.obj"
+        <mesh filename="package://origin_one_description/urdf/meshes/wheel.obj"
           scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
@@ -87,7 +87,7 @@
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 1.5707 0.0"/>
       <geometry>
-        <mesh filename="package://origin_v10_description/urdf/meshes/wheel.obj"
+        <mesh filename="package://origin_one_description/urdf/meshes/wheel.obj"
           scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
@@ -127,7 +127,7 @@
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 1.5707 0.0"/>
       <geometry>
-        <mesh filename="package://origin_v10_description/urdf/meshes/wheel.obj"
+        <mesh filename="package://origin_one_description/urdf/meshes/wheel.obj"
           scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
@@ -167,7 +167,7 @@
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 1.5707 0.0"/>
       <geometry>
-        <mesh filename="package://origin_v10_description/urdf/meshes/wheel.obj"
+        <mesh filename="package://origin_one_description/urdf/meshes/wheel.obj"
           scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
@@ -201,7 +201,7 @@
     </inertial>
     <visual name="visual">
       <geometry>
-        <mesh filename="package://origin_v10_description/urdf/meshes/ouster.obj"
+        <mesh filename="package://origin_one_description/urdf/meshes/ouster.obj"
           scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
@@ -329,7 +329,7 @@
   <link name="gnss_link">
     <visual name="visual_pole">
       <geometry>
-        <mesh filename="package://origin_v10_description/urdf/meshes/antenna.obj"
+        <mesh filename="package://origin_one_description/urdf/meshes/antenna.obj"
           scale="0.001 0.001 0.001" />
       </geometry>
       <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
@@ -366,6 +366,27 @@
       </gps>
     </sensor>
   </gazebo>
+  
+  <link name="us_left_front_link">
+  </link>
+
+  <link name="us_center_front_link">
+  </link>
+
+  <link name="us_right_front_link">
+  </link>
+
+  <link name="us_left_rear_link">
+  </link>
+
+  <link name="us_center_rear_link">
+  </link>
+
+  <link name="us_right_rear_link">
+  </link>
+
+  <link name="imu_link">
+  </link>
 
   <joint type="fixed" name="base_body">
     <origin xyz="0.0 0 0.064" rpy="0 0 0"/>
@@ -424,7 +445,7 @@
   </joint>
 
   <joint type="fixed" name="realsense_joint">
-    <origin xyz="0.32 0.03 0.1" rpy="0 0 0"/>
+    <origin xyz="0.3156 0.017 0.096" rpy="0 0 0"/>
     <child link="camera_link"/>
     <parent link="main_body"/>
   </joint>
@@ -432,6 +453,49 @@
   <joint type="fixed" name="gnss_joint">
     <origin xyz="-0.0505 0 0.212" rpy="0 0 0"/>
     <child link="gnss_link"/>
+    <parent link="main_body"/>
+  </joint>
+
+  <joint type="fixed" name="us_left_front_joint">
+    <origin xyz="0.314 0.119 0.072" rpy="0 0 -0.7854"/>
+    <child link="us_left_front_link"/>
+    <parent link="main_body"/>
+  </joint>
+
+  <joint type="fixed" name="us_center_front_joint">
+    <origin xyz="0.322 0 0.063" rpy="0 0 0"/>
+    <child link="us_center_front_link"/>
+    <parent link="main_body"/>
+  </joint>
+
+  <joint type="fixed" name="us_right_front_joint">
+    <origin xyz="0.314 -0.119 0.072" rpy="0 0 0.7854"/>
+    <child link="us_right_front_link"/>
+    <parent link="main_body"/>
+  </joint>
+
+  <joint type="fixed" name="us_left_rear_joint">
+    <origin xyz="-0.314 0.119 0.072" rpy="0 0 -2.357"/>
+    <child link="us_left_rear_link"/>
+    <parent link="main_body"/>
+  </joint>
+
+  <joint type="fixed" name="us_center_rear_joint">
+    <origin xyz="-0.322 0 0.063" rpy="0 0 0"/>
+    <child link="us_center_rear_link"/>
+    <parent link="main_body"/>
+  </joint>
+
+  <joint type="fixed" name="us_right_rear_joint">
+    <origin xyz="-0.314 -0.119 0.072" rpy="0 0 2.357"/>
+    <child link="us_right_rear_link"/>
+    <parent link="main_body"/>
+  </joint>
+
+
+  <joint type="fixed" name="imu_joint">
+    <origin xyz="-0.1266 0.0749 0.066" rpy="0 0 2.357"/>
+    <child link="imu_link"/>
     <parent link="main_body"/>
   </joint>
 

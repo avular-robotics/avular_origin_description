@@ -2,7 +2,7 @@ import os  # Operating system library
 from glob import glob  # Handles file path names
 from setuptools import setup  # Facilitates the building of packages
 
-package_name = "origin_v10_description"
+package_name = "origin_one_description"
 
 # Path of the current directory
 cur_directory_path = os.path.abspath(os.path.dirname(__file__))
