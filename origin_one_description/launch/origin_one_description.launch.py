@@ -18,8 +18,8 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
 
-    package_name = "origin_v10_description"
-    urdf_file_path = "urdf/origin_v10.urdf"
+    package_name = "origin_one_description"
+    urdf_file_path = "urdf/origin_one.urdf"
 
     urdf = open(
         path.join(FindPackageShare(package_name).find(package_name), urdf_file_path)
@@ -49,22 +49,9 @@ def generate_launch_description():
         remappings=[("/joint_states", "/robot/joint_states")],
     )
 
-    rviz = Node(
-        package="rviz2",
-        executable="rviz2",
-        name="rviz2",
-        arguments=[
-            "-d",
-            PathJoinSubstitution(
-                [FindPackageShare(package=package_name), "rviz/origin_v10.rviz"]
-            ),
-        ],
-    )
-
     ld = LaunchDescription()
     ld.add_action(arg_ns)
     ld.add_action(urdf_model_path_arg)
-    ld.add_action(rviz)
     ld.add_action(robot_state_publisher_node)
 
     return ld

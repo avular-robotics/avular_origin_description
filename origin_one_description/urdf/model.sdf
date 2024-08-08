@@ -1,5 +1,5 @@
 <sdf version='1.9'>
-  <model name='avular_origin_v10'>
+  <model name='avular_origin_one'>
     <link name='base_link'>
       <inertial>
         <pose>0.01402304043370228 4.743618703410888e-05 0.07370860627964762 0 0 0</pose>
@@ -51,7 +51,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://avular_origin_v10/meshes/body.obj</uri>
+            <uri>model://avular_origin_one/meshes/body.obj</uri>
           </mesh>
         </geometry>
       </visual>
@@ -60,7 +60,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://avular_origin_v10/meshes/antenna.obj</uri>
+            <uri>model://avular_origin_one/meshes/antenna.obj</uri>
           </mesh>
         </geometry>
       </visual>
@@ -69,7 +69,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://avular_origin_v10/meshes/ouster.obj</uri>
+            <uri>model://avular_origin_one/meshes/ouster.obj</uri>
           </mesh>
         </geometry>
       </visual>
@@ -245,7 +245,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://avular_origin_v10/meshes/wheel.obj</uri>
+            <uri>model://avular_origin_one/meshes/wheel.obj</uri>
           </mesh>
         </geometry>
       </visual>
@@ -315,7 +315,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://avular_origin_v10/meshes/wheel.obj</uri>
+            <uri>model://avular_origin_one/meshes/wheel.obj</uri>
           </mesh>
         </geometry>
       </visual>
@@ -385,7 +385,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://avular_origin_v10/meshes/wheel.obj</uri>
+            <uri>model://avular_origin_one/meshes/wheel.obj</uri>
           </mesh>
         </geometry>
       </visual>
@@ -455,7 +455,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://avular_origin_v10/meshes/wheel.obj</uri>
+            <uri>model://avular_origin_one/meshes/wheel.obj</uri>
           </mesh>
         </geometry>
       </visual>
