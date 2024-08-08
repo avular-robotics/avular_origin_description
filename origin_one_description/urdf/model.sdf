@@ -1,0 +1,545 @@
+<sdf version='1.9'>
+  <model name='avular_origin_one'>
+    <link name='base_link'>
+      <inertial>
+        <pose>0.01401608312627061 2.688050598599503e-05 0.07370228145470974 0 0 0</pose>
+        <mass>22.135000000000002</mass>
+        <inertia>
+          <ixx>0.44198759704088553</ixx>
+          <ixy>-0.00017944243053986901</ixy>
+          <ixz>-0.055551121987802127</ixz>
+          <iyy>0.8924975819091937</iyy>
+          <iyz>-5.1347142534447727e-05</iyz>
+          <izz>1.093530182880506</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_fixed_joint_lump__collision_collision'>
+        <pose>0 0 0.134 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.65 0.4 0.125</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__collision-base_collision_1'>
+        <pose>0.272 0 0.253 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__collision-base_collision_2'>
+        <pose>0.272 0 0.288 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.070000000000000007</length>
+            <radius>0.040000000000000001</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__collision_collision_3'>
+        <pose>0.3156 0.064 0.16 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.008 0.13 0.022</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='base_link_fixed_joint_lump__visual_visual'>
+        <pose>0 0 0.064 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://avular_origin_one/meshes/body.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__visual_pole_visual_1'>
+        <pose>-0.0505 0 0.276 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://avular_origin_one/meshes/antenna.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__visual_visual_2'>
+        <pose>0.272 0 0.253 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://avular_origin_one/meshes/ouster.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <sensor name='navsat' type='navsat'>
+        <always_on>true</always_on>
+        <update_rate>10</update_rate>
+        <topic>/robot/gnss</topic>
+        <gps>
+          <position_sensing>
+            <horizontal>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.0001</stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.0001</stddev>
+              </noise>
+            </vertical>
+          </position_sensing>
+        </gps>
+        <pose>-0.0505 0 0.276 0 -0 0</pose>
+        <gz_frame_id>gnss_link</gz_frame_id>
+      </sensor>
+      <sensor name='ouster_lidar' type='gpu_lidar'>
+        <topic>/robot/lidar</topic>
+        <update_rate>10</update_rate>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>1024</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.1415926000000001</min_angle>
+              <max_angle>3.1415926000000001</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>32</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.39000000000000001</min_angle>
+              <max_angle>0.39000000000000001</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.080000000000000002</min>
+            <max>100</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <mean>0</mean>
+            <stddev>0.01</stddev>
+            <type>gaussian</type>
+          </noise>
+        </lidar>
+        <visualize>true</visualize>
+        <pose>0.272 0 0.288 0 -0 0</pose>
+        <gz_frame_id>os_lidar</gz_frame_id>
+        <alwaysOn>1</alwaysOn>
+      </sensor>
+      <sensor name='realsense_d435' type='rgbd_camera'>
+        <topic>/robot/camera</topic>
+        <update_rate>6</update_rate>
+        <camera name='camera'>
+          <horizontal_fov>1.0471999999999999</horizontal_fov>
+          <lens>
+            <intrinsics>
+              <fx>554.25468999999998</fx>
+              <fy>554.25468999999998</fy>
+              <cx>320.5</cx>
+              <cy>240.5</cy>
+              <s>0</s>
+            </intrinsics>
+            <type>stereographic</type>
+            <scale_to_hfov>true</scale_to_hfov>
+          </lens>
+          <distortion>
+            <k1>0</k1>
+            <k2>0</k2>
+            <k3>0</k3>
+            <p1>0</p1>
+            <p2>0</p2>
+            <center>0.5 0.5</center>
+          </distortion>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <depth_camera>
+            <clip>
+              <near>0.10000000000000001</near>
+              <far>10</far>
+            </clip>
+            <output>depths</output>
+          </depth_camera>
+          <noise>
+            <mean>0</mean>
+            <stddev>0.0070000000000000001</stddev>
+            <type>gaussian</type>
+          </noise>
+        </camera>
+        <pose>0.3156 0.017 0.16 0 -0 0</pose>
+        <gz_frame_id>camera_link</gz_frame_id>
+      </sensor>
+    </link>
+    <joint name='main_body_left_front_wheel' type='revolute'>
+      <pose relative_to='base_link'>0.205 0.25 0.12 -1.5707 0 0</pose>
+      <parent>base_link</parent>
+      <child>left_front_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>100000</effort>
+          <velocity>10</velocity>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_front_wheel'>
+      <pose relative_to='main_body_left_front_wheel'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_front_wheel_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.070000000000000007</length>
+            <radius>0.11749999999999999</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.014999999999999999</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
+            </ode>
+            <bullet>
+              <friction>1</friction>
+              <friction2>1</friction2>
+              <rolling_friction>0.10000000000000001</rolling_friction>
+            </bullet>
+          </friction>
+          <contact>
+            <ode/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='left_front_wheel_visual'>
+        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://avular_origin_one/meshes/wheel.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='main_body_left_rear_wheel' type='revolute'>
+      <pose relative_to='base_link'>-0.205 0.25 0.12 -1.5707 0 0</pose>
+      <parent>base_link</parent>
+      <child>left_rear_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>100000</effort>
+          <velocity>10</velocity>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_rear_wheel'>
+      <pose relative_to='main_body_left_rear_wheel'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_rear_wheel_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.070000000000000007</length>
+            <radius>0.11749999999999999</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.014999999999999999</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
+            </ode>
+            <bullet>
+              <friction>1</friction>
+              <friction2>1</friction2>
+              <rolling_friction>0.10000000000000001</rolling_friction>
+            </bullet>
+          </friction>
+          <contact>
+            <ode/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='left_rear_wheel_visual'>
+        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://avular_origin_one/meshes/wheel.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='main_body_right_front_wheel' type='revolute'>
+      <pose relative_to='base_link'>0.205 -0.25 0.12 1.5707 0 0</pose>
+      <parent>base_link</parent>
+      <child>right_front_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>100000</effort>
+          <velocity>10</velocity>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_front_wheel'>
+      <pose relative_to='main_body_right_front_wheel'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_front_wheel_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.070000000000000007</length>
+            <radius>0.11749999999999999</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.014999999999999999</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
+            </ode>
+            <bullet>
+              <friction>1</friction>
+              <friction2>1</friction2>
+              <rolling_friction>0.10000000000000001</rolling_friction>
+            </bullet>
+          </friction>
+          <contact>
+            <ode/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='right_front_wheel_visual'>
+        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://avular_origin_one/meshes/wheel.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='main_body_right_rear_wheel' type='revolute'>
+      <pose relative_to='base_link'>-0.205 -0.25 0.12 1.5707 0 0</pose>
+      <parent>base_link</parent>
+      <child>right_rear_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>100000</effort>
+          <velocity>10</velocity>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_rear_wheel'>
+      <pose relative_to='main_body_right_rear_wheel'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_rear_wheel_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.070000000000000007</length>
+            <radius>0.11749999999999999</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.014999999999999999</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
+            </ode>
+            <bullet>
+              <friction>1</friction>
+              <friction2>1</friction2>
+              <rolling_friction>0.10000000000000001</rolling_friction>
+            </bullet>
+          </friction>
+          <contact>
+            <ode/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='right_rear_wheel_visual'>
+        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://avular_origin_one/meshes/wheel.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <static>false</static>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin name='ignition::gazebo::systems::NavSat' filename='ignition-gazebo-navsat-system'/>
+    <plugin name='ignition::gazebo::systems::JointStatePublisher' filename='gz-sim-joint-state-publisher-system'>
+      <topic>/robot/joint_states</topic>
+    </plugin>
+    <plugin name='gz::sim::systems::DiffDrive' filename='gz-sim-diff-drive-system'>
+      <left_joint>main_body_left_front_wheel</left_joint>
+      <left_joint>main_body_left_rear_wheel</left_joint>
+      <right_joint>main_body_right_front_wheel</right_joint>
+      <right_joint>main_body_right_rear_wheel</right_joint>
+      <wheel_separation>0.45</wheel_separation>
+      <wheel_radius>0.120</wheel_radius>
+      <max_linear_acceleration>5.5</max_linear_acceleration>
+      <min_linear_acceleration>-5.5</min_linear_acceleration>
+      <max_angular_acceleration>6</max_angular_acceleration>
+      <min_angular_acceleration>-6</min_angular_acceleration>
+      <max_linear_velocity>1.5</max_linear_velocity>
+      <min_linear_velocity>-1.5</min_linear_velocity>
+      <max_angular_velocity>2</max_angular_velocity>
+      <min_angular_velocity>-2</min_angular_velocity>
+      <topic>/robot/cmd_vel</topic>
+      <odom_topic>/robot/odom</odom_topic>
+      <tf_topic>/robot/tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+    </plugin>
+    <frame name='gnss_joint' attached_to='main_body'>
+      <pose>-0.0505 0 0.212 0 -0 0</pose>
+    </frame>
+    <frame name='gnss_link' attached_to='gnss_joint'/>
+    <frame name='imu_joint' attached_to='main_body'>
+      <pose>-0.1266 0.0749 0.066 0 -0 2.357</pose>
+    </frame>
+    <frame name='imu_link' attached_to='imu_joint'/>
+    <frame name='lidar_joint_gazebo' attached_to='ouster_base'>
+      <pose>0 0 0.035 0 -0 0</pose>
+    </frame>
+    <frame name='lidar_link_gazebo' attached_to='lidar_joint_gazebo'/>
+    <frame name='ouster_orientation_joint' attached_to='ouster_base'>
+      <pose>0 0 0 0 -0 0</pose>
+    </frame>
+    <frame name='os_sensor' attached_to='ouster_orientation_joint'/>
+    <frame name='ouster_platform_joint' attached_to='main_body'>
+      <pose>0.272 0 0.189 0 -0 0</pose>
+    </frame>
+    <frame name='ouster_base' attached_to='ouster_platform_joint'/>
+    <frame name='realsense_joint' attached_to='main_body'>
+      <pose>0.3156 0.017 0.096 0 -0 0</pose>
+    </frame>
+    <frame name='camera_link' attached_to='realsense_joint'/>
+    <frame name='us_center_front_joint' attached_to='main_body'>
+      <pose>0.322 0 0.063 0 -0 0</pose>
+    </frame>
+    <frame name='us_center_front_link' attached_to='us_center_front_joint'/>
+    <frame name='us_center_rear_joint' attached_to='main_body'>
+      <pose>-0.322 0 0.063 0 -0 0</pose>
+    </frame>
+    <frame name='us_center_rear_link' attached_to='us_center_rear_joint'/>
+    <frame name='us_left_front_joint' attached_to='main_body'>
+      <pose>0.314 0.119 0.072 0 0 -0.7854</pose>
+    </frame>
+    <frame name='us_left_front_link' attached_to='us_left_front_joint'/>
+    <frame name='us_left_rear_joint' attached_to='main_body'>
+      <pose>-0.314 0.119 0.072 0 0 -2.357</pose>
+    </frame>
+    <frame name='us_left_rear_link' attached_to='us_left_rear_joint'/>
+    <frame name='us_right_front_joint' attached_to='main_body'>
+      <pose>0.314 -0.119 0.072 0 -0 0.7854</pose>
+    </frame>
+    <frame name='us_right_front_link' attached_to='us_right_front_joint'/>
+    <frame name='us_right_rear_joint' attached_to='main_body'>
+      <pose>-0.314 -0.119 0.072 0 -0 2.357</pose>
+    </frame>
+    <frame name='us_right_rear_link' attached_to='us_right_rear_joint'/>
+    <frame name='base_body' attached_to='base_link'>
+      <pose>0 0 0.064 0 -0 0</pose>
+    </frame>
+    <frame name='main_body' attached_to='base_body'/>
+  </model>
+</sdf>
