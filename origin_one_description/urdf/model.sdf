@@ -2,15 +2,15 @@
   <model name='avular_origin_one'>
     <link name='base_link'>
       <inertial>
-        <pose>0.01402304043370228 4.743618703410888e-05 0.07370860627964762 0 0 0</pose>
+        <pose>0.01401608312627061 2.688050598599503e-05 0.07370228145470974 0 0 0</pose>
         <mass>22.135000000000002</mass>
         <inertia>
-          <ixx>0.44203367070250732</ixx>
-          <ixy>-0.0003212758075446126</ixy>
-          <ixz>-0.055607248610797397</ixz>
-          <iyy>0.89261586875988252</iyy>
-          <iyz>-9.4805963406370018e-05</iyz>
-          <izz>1.093645098441383</izz>
+          <ixx>0.44198759704088553</ixx>
+          <ixy>-0.00017944243053986901</ixy>
+          <ixz>-0.055551121987802127</ixz>
+          <iyy>0.8924975819091937</iyy>
+          <iyz>-5.1347142534447727e-05</iyz>
+          <izz>1.093530182880506</izz>
         </inertia>
       </inertial>
       <collision name='base_link_fixed_joint_lump__collision_collision'>
@@ -39,7 +39,7 @@
         </geometry>
       </collision>
       <collision name='base_link_fixed_joint_lump__collision_collision_3'>
-        <pose>0.32 0.077 0.164 0 0 0</pose>
+        <pose>0.3156 0.064 0.16 0 0 0</pose>
         <geometry>
           <box>
             <size>0.008 0.13 0.022</size>
@@ -176,7 +176,7 @@
             <type>gaussian</type>
           </noise>
         </camera>
-        <pose>0.32 0.03 0.164 0 -0 0</pose>
+        <pose>0.3156 0.017 0.16 0 -0 0</pose>
         <gz_frame_id>camera_link</gz_frame_id>
       </sensor>
     </link>
@@ -493,6 +493,10 @@
       <pose>-0.0505 0 0.212 0 -0 0</pose>
     </frame>
     <frame name='gnss_link' attached_to='gnss_joint'/>
+    <frame name='imu_joint' attached_to='main_body'>
+      <pose>-0.1266 0.0749 0.066 0 -0 2.357</pose>
+    </frame>
+    <frame name='imu_link' attached_to='imu_joint'/>
     <frame name='lidar_joint_gazebo' attached_to='ouster_base'>
       <pose>0 0 0.035 0 -0 0</pose>
     </frame>
@@ -506,9 +510,33 @@
     </frame>
     <frame name='ouster_base' attached_to='ouster_platform_joint'/>
     <frame name='realsense_joint' attached_to='main_body'>
-      <pose>0.32 0.03 0.1 0 -0 0</pose>
+      <pose>0.3156 0.017 0.096 0 -0 0</pose>
     </frame>
     <frame name='camera_link' attached_to='realsense_joint'/>
+    <frame name='us_center_front_joint' attached_to='main_body'>
+      <pose>0.322 0 0.063 0 -0 0</pose>
+    </frame>
+    <frame name='us_center_front_link' attached_to='us_center_front_joint'/>
+    <frame name='us_center_rear_joint' attached_to='main_body'>
+      <pose>-0.322 0 0.063 0 -0 0</pose>
+    </frame>
+    <frame name='us_center_rear_link' attached_to='us_center_rear_joint'/>
+    <frame name='us_left_front_joint' attached_to='main_body'>
+      <pose>0.314 0.119 0.072 0 0 -0.7854</pose>
+    </frame>
+    <frame name='us_left_front_link' attached_to='us_left_front_joint'/>
+    <frame name='us_left_rear_joint' attached_to='main_body'>
+      <pose>-0.314 0.119 0.072 0 0 -2.357</pose>
+    </frame>
+    <frame name='us_left_rear_link' attached_to='us_left_rear_joint'/>
+    <frame name='us_right_front_joint' attached_to='main_body'>
+      <pose>0.314 -0.119 0.072 0 -0 0.7854</pose>
+    </frame>
+    <frame name='us_right_front_link' attached_to='us_right_front_joint'/>
+    <frame name='us_right_rear_joint' attached_to='main_body'>
+      <pose>-0.314 -0.119 0.072 0 -0 2.357</pose>
+    </frame>
+    <frame name='us_right_rear_link' attached_to='us_right_rear_joint'/>
     <frame name='base_body' attached_to='base_link'>
       <pose>0 0 0.064 0 -0 0</pose>
     </frame>
