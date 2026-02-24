@@ -217,7 +217,7 @@
         <geometry>
           <cylinder>
             <length>0.070000000000000007</length>
-            <radius>0.11749999999999999</radius>
+            <radius>0.12</radius>
           </cylinder>
         </geometry>
         <surface>
@@ -287,7 +287,7 @@
         <geometry>
           <cylinder>
             <length>0.070000000000000007</length>
-            <radius>0.11749999999999999</radius>
+            <radius>0.12</radius>
           </cylinder>
         </geometry>
         <surface>
@@ -321,11 +321,11 @@
       </visual>
     </link>
     <joint name='main_body_right_front_wheel' type='revolute'>
-      <pose relative_to='base_link'>0.205 -0.25 0.12 1.5707 0 0</pose>
+      <pose relative_to='base_link'>0.205 -0.25 0.12 -1.5707 0 0</pose>
       <parent>base_link</parent>
       <child>right_front_wheel</child>
       <axis>
-        <xyz>0 0 -1</xyz>
+        <xyz>0 0 1</xyz>
         <limit>
           <effort>100000</effort>
           <velocity>10</velocity>
@@ -357,7 +357,7 @@
         <geometry>
           <cylinder>
             <length>0.070000000000000007</length>
-            <radius>0.11749999999999999</radius>
+            <radius>0.12</radius>
           </cylinder>
         </geometry>
         <surface>
@@ -381,7 +381,7 @@
         </surface>
       </collision>
       <visual name='right_front_wheel_visual'>
-        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <pose>0 0 0 0 -1.570796326794897 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
@@ -391,11 +391,11 @@
       </visual>
     </link>
     <joint name='main_body_right_rear_wheel' type='revolute'>
-      <pose relative_to='base_link'>-0.205 -0.25 0.12 1.5707 0 0</pose>
+      <pose relative_to='base_link'>-0.205 -0.25 0.12 -1.5707 0 0</pose>
       <parent>base_link</parent>
       <child>right_rear_wheel</child>
       <axis>
-        <xyz>0 0 -1</xyz>
+        <xyz>0 0 1</xyz>
         <limit>
           <effort>100000</effort>
           <velocity>10</velocity>
@@ -427,7 +427,7 @@
         <geometry>
           <cylinder>
             <length>0.070000000000000007</length>
-            <radius>0.11749999999999999</radius>
+            <radius>0.12</radius>
           </cylinder>
         </geometry>
         <surface>
@@ -451,7 +451,7 @@
         </surface>
       </collision>
       <visual name='right_rear_wheel_visual'>
-        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <pose>0 0 0 0 -1.570796326794897 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
