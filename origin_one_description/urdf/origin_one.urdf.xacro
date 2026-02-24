@@ -15,6 +15,26 @@
     <!-- wheelMeshFileB refer to the mesh file used to visualize front right & rear left wheel  -->
     <xacro:property name="wheelMeshFileB" value="package://origin_one_description/urdf/meshes/wheel.obj"/>
   </xacro:if>
+  <xacro:if value="${var == 'big_skid_steer_drive'}">
+    <xacro:property name="trackWidth" value="0.530"/>
+    <xacro:property name="wheelbase" value="0.410"/>
+    <xacro:property name="wheelRadius" value="0.165"/>
+    <xacro:property name="groundClearance" value="0.109"/>
+    <!-- wheelMeshFileA refer to the mesh file used to visualize front left & rear right wheel  -->
+    <xacro:property name="wheelMeshFileA" value="package://origin_one_description/urdf/meshes/wheel_big.obj"/>
+    <!-- wheelMeshFileB refer to the mesh file used to visualize front right & rear left wheel  -->
+    <xacro:property name="wheelMeshFileB" value="package://origin_one_description/urdf/meshes/wheel_big.obj"/>
+  </xacro:if>
+  <xacro:if value="${var == 'elevated_skid_steer_drive'}">
+    <xacro:property name="trackWidth" value="0.530"/>
+    <xacro:property name="wheelbase" value="0.410"/>
+    <xacro:property name="wheelRadius" value="0.165"/>
+    <xacro:property name="groundClearance" value="0.109"/>
+    <!-- wheelMeshFileA refer to the mesh file used to visualize front left & rear right wheel  -->
+    <xacro:property name="wheelMeshFileA" value="package://origin_one_description/urdf/meshes/wheel_big.obj"/>
+    <!-- wheelMeshFileB refer to the mesh file used to visualize front right & rear left wheel  -->
+    <xacro:property name="wheelMeshFileB" value="package://origin_one_description/urdf/meshes/wheel_big.obj"/>
+  </xacro:if>
   <xacro:if value="${var == 'mecanum_drive'}">
     <xacro:property name="trackWidth" value="0.475"/>
     <xacro:property name="wheelbase" value="0.410"/>
@@ -96,6 +116,24 @@
               <fdir1 ignition:expressed_in="base_link">1 -1 0</fdir1>
             </ode>
           </xacro:if>
+          <xacro:if value="${var == 'big_skid_steer_drive'}">
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.015</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
+            </ode>
+          </xacro:if>
+          <xacro:if value="${var == 'elevated_skid_steer_drive'}">
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.015</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
+            </ode>
+          </xacro:if>
           <bullet>
             <friction>1</friction>
             <friction2>1</friction2>
@@ -143,6 +181,24 @@
               <mu>1</mu>
               <mu2>0</mu2>
               <fdir1 ignition:expressed_in="base_link">1 1 0</fdir1>
+            </ode>
+          </xacro:if>
+          <xacro:if value="${var == 'big_skid_steer_drive'}">
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.015</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
+            </ode>
+          </xacro:if>
+          <xacro:if value="${var == 'elevated_skid_steer_drive'}">
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.015</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
             </ode>
           </xacro:if>
           <bullet>
@@ -194,6 +250,24 @@
               <fdir1 ignition:expressed_in="base_link">1 1 0</fdir1>
             </ode>
           </xacro:if>
+          <xacro:if value="${var == 'big_skid_steer_drive'}">
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.015</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
+            </ode>
+          </xacro:if>
+          <xacro:if value="${var == 'elevated_skid_steer_drive'}">
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.015</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
+            </ode>
+          </xacro:if>
           <bullet>
             <friction>1</friction>
             <friction2>1</friction2>
@@ -241,6 +315,24 @@
               <mu>1</mu>
               <mu2>0</mu2>
               <fdir1 ignition:expressed_in="base_link">1 -1 0</fdir1>
+            </ode>
+          </xacro:if>
+          <xacro:if value="${var == 'big_skid_steer_drive'}">
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.015</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
+            </ode>
+          </xacro:if>
+          <xacro:if value="${var == 'elevated_skid_steer_drive'}">
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <slip1>0.015</slip1>
+              <slip2>0</slip2>
+              <fdir1>0 0 1</fdir1>
             </ode>
           </xacro:if>
           <bullet>
@@ -581,6 +673,56 @@
         <min_linear_velocity>-1.5</min_linear_velocity>
         <max_angular_velocity>2</max_angular_velocity>
         <min_angular_velocity>-2</min_angular_velocity>
+        <topic>/robot/cmd_vel</topic>
+        <odom_topic>/robot/odom</odom_topic>
+        <tf_topic>/robot/tf</tf_topic>
+        <frame_id>odom</frame_id>
+        <child_frame_id>base_link</child_frame_id>
+      </plugin>
+    </xacro:if>
+
+    <!-- controls big skid steer drive -->
+    <xacro:if value="${var == 'big_skid_steer_drive'}">
+      <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+        <left_joint>main_body_left_front_wheel</left_joint>
+        <left_joint>main_body_left_rear_wheel</left_joint>
+        <right_joint>main_body_right_front_wheel</right_joint>
+        <right_joint>main_body_right_rear_wheel</right_joint>
+        <wheel_separation>0.45</wheel_separation>
+        <wheel_radius>0.165</wheel_radius>
+        <max_linear_acceleration>5.5</max_linear_acceleration>
+        <min_linear_acceleration>-5.5</min_linear_acceleration>
+        <max_angular_acceleration>6</max_angular_acceleration>
+        <min_angular_acceleration>-6</min_angular_acceleration>
+        <max_linear_velocity>2.5</max_linear_velocity>
+        <min_linear_velocity>-2.5</min_linear_velocity>
+        <max_angular_velocity>3</max_angular_velocity>
+        <min_angular_velocity>-3</min_angular_velocity>
+        <topic>/robot/cmd_vel</topic>
+        <odom_topic>/robot/odom</odom_topic>
+        <tf_topic>/robot/tf</tf_topic>
+        <frame_id>odom</frame_id>
+        <child_frame_id>base_link</child_frame_id>
+      </plugin>
+    </xacro:if>
+
+    <!-- controls big skid steer drive -->
+    <xacro:if value="${var == 'elevated_skid_steer_drive'}">
+      <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+        <left_joint>main_body_left_front_wheel</left_joint>
+        <left_joint>main_body_left_rear_wheel</left_joint>
+        <right_joint>main_body_right_front_wheel</right_joint>
+        <right_joint>main_body_right_rear_wheel</right_joint>
+        <wheel_separation>0.45</wheel_separation>
+        <wheel_radius>0.165</wheel_radius>
+        <max_linear_acceleration>5.5</max_linear_acceleration>
+        <min_linear_acceleration>-5.5</min_linear_acceleration>
+        <max_angular_acceleration>6</max_angular_acceleration>
+        <min_angular_acceleration>-6</min_angular_acceleration>
+        <max_linear_velocity>2.5</max_linear_velocity>
+        <min_linear_velocity>-2.5</min_linear_velocity>
+        <max_angular_velocity>3</max_angular_velocity>
+        <min_angular_velocity>-3</min_angular_velocity>
         <topic>/robot/cmd_vel</topic>
         <odom_topic>/robot/odom</odom_topic>
         <tf_topic>/robot/tf</tf_topic>

@@ -1,4 +1,4 @@
-# Copyright 2024 Avular B.V.
+# Copyright 2024 Avular Holding B.V.
 # All Rights Reserved
 # You may use this code under the terms of the Avular
 # Software End-User License Agreement.
@@ -11,6 +11,7 @@ from launch import LaunchDescription
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+
 
 def generate_launch_description():
 
