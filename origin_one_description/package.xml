@@ -2,16 +2,24 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>origin_one_description</name>
-  <version>1.0.0</version>
+  <version>1.2.1</version>
   <description> Robot description models for the Avular Origin One </description>
   <maintainer email="p.janssen@avular.com">Paul Janssen</maintainer>
-  <maintainer email="b.hendrikx@avular.com">Bob Hendrikx</maintainer>
-  <license>proprietary</license>
+  <license>Avular Holding B.V.</license>
+  <buildtool_depend>cmake_avular</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>robot_state_publisher</depend>
+  <exec_depend>xacro</exec_depend>
+
+  <test_depend>ament_copyright_avular</test_depend>
 
   <export>
-    <build_type>ament_python</build_type>
+    <build_type>ament_cmake</build_type>
+    <debian_depend>ament-copyright-avular</debian_depend>
+    <debian_depend>cmake-avular</debian_depend>
+    <debian_depend>ros-humble-ament-cmake</debian_depend>
     <debian_depend>ros-humble-robot-state-publisher</debian_depend>
+    <debian_depend>ros-humble-xacro</debian_depend>
   </export>
 </package>

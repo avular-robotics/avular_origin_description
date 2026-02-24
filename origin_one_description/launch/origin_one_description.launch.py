@@ -1,4 +1,4 @@
-# Copyright 2024 Avular B.V.
+# Copyright 2024 Avular Holding B.V.
 # All Rights Reserved
 # You may use this code under the terms of the Avular
 # Software End-User License Agreement.
@@ -27,15 +27,21 @@ def generate_launch_description():
     arg_drive_configuration = DeclareLaunchArgument(
         "drive_configuration",
         default_value="skid_steer_drive",
-        description="The drive configuration of the robot, either skid_steer_drive (which is default) or mecanum_drive.",
+        description="The drive configuration of the robot, either skid_steer_drive (which is default) or mecanum_drive or big_skid_steer_drive or or elevated_skid_steer_drive.",
     )
 
     # Function to create the URDF description from the Xacro file
     def create_urdf_description(context):
-        xacro_file = path.join(FindPackageShare(package_name).find(package_name), xacro_file_path)
-        drive_configuration = LaunchConfiguration('drive_configuration').perform(context)
-        urdf = xacro.process_file(xacro_file, mappings={"drive_configuration": drive_configuration}).toxml()
-        return [SetLaunchConfiguration('urdf', urdf)]
+        xacro_file = path.join(
+            FindPackageShare(package_name).find(package_name), xacro_file_path
+        )
+        drive_configuration = LaunchConfiguration("drive_configuration").perform(
+            context
+        )
+        urdf = xacro.process_file(
+            xacro_file, mappings={"drive_configuration": drive_configuration}
+        ).toxml()
+        return [SetLaunchConfiguration("urdf", urdf)]
 
     # Declare the namespace argument
     arg_ns = DeclareLaunchArgument(
@@ -49,7 +55,13 @@ def generate_launch_description():
         package="robot_state_publisher",
         executable="robot_state_publisher",
         namespace=LaunchConfiguration("ns"),
-        parameters=[{"robot_description": ParameterValue(LaunchConfiguration('urdf'), value_type=str)}],
+        parameters=[
+            {
+                "robot_description": ParameterValue(
+                    LaunchConfiguration("urdf"), value_type=str
+                )
+            }
+        ],
         respawn=False,
         respawn_delay=1.0,
         remappings=[("/joint_states", "/robot/joint_states")],
@@ -60,6 +72,5 @@ def generate_launch_description():
     ld.add_action(OpaqueFunction(function=create_urdf_description))
     ld.add_action(arg_ns)
     ld.add_action(robot_state_publisher_node)
-
 
     return ld

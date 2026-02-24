@@ -1,3 +1,9 @@
+## 1.2.1
+- Updated package.xml to include xacro as an exec_depend.
+
+## 1.2.0
+- Updated github workflows for internal package management. No changes to the public packages.
+
 ## 1.1.0
 
 - Moved to xacro for the URDF description.
