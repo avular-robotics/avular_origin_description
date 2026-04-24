@@ -6,7 +6,6 @@
   <description> Robot description models for the Avular Origin One </description>
   <maintainer email="p.janssen@avular.com">Paul Janssen</maintainer>
   <license>Avular Holding B.V.</license>
-  <buildtool_depend>cmake_avular</buildtool_depend>
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>robot_state_publisher</depend>
