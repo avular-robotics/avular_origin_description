@@ -16,8 +16,6 @@
 
   <export>
     <build_type>ament_cmake</build_type>
-    <debian_depend>ament-copyright-avular</debian_depend>
-    <debian_depend>cmake-avular</debian_depend>
     <debian_depend>ros-humble-ament-cmake</debian_depend>
     <debian_depend>ros-humble-robot-state-publisher</debian_depend>
     <debian_depend>ros-humble-xacro</debian_depend>
