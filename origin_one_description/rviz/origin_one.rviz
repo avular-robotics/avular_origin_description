@@ -27,12 +27,6 @@ Panels:
     Name: Time
     SyncMode: 0
     SyncSource: ""
-  - Class: autonomy::TwilightSlamPlugin
-    Name: TwilightSlamPlugin
-  - Class: autonomy::BehaviorPlugin
-    Name: BehaviorPlugin
-  - Class: autonomy::SetStatePlugin
-    Name: SetStatePlugin
 Visualization Manager:
   Class: ""
   Displays:
