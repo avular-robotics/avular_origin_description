@@ -1,3 +1,9 @@
+## 2.0.0
+- Updated Top-level and urdf/ README files
+- Updated xacro description file to contain only hardware URDF description
+- Added prefix and namespace xacro args to origin_one.urdf.xacro
+- All gazebo related parameters will be moved to avular_origin_simulation and avular_simulations repo
+
 ## 1.2.1
 - Updated package.xml to include xacro as an exec_depend.
 
@@ -21,4 +27,4 @@
 - Added the launch file origin_one_rviz.launch.py for launching RVIZ. 
 - Added link definitions for the IMU and ultrasonic sensors.
 
-Contributors: @bobhendrikx4 @avupaul @tijsvdsmagt
+Contributors: @avupaul @tijsvdsmagt
